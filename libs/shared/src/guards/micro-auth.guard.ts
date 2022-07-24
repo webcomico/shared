@@ -9,7 +9,7 @@ import {IS_PUBLIC_KEY, IS_TEST_USER_KEY} from "@app/shared/decorators";
 @Injectable()
 export class MicroAuthGuard extends AuthGuard('micro-auth') {
 
-    constructor(private reflector: Reflector) {
+    constructor(readonly reflector: Reflector) {
         super()
     }
 
