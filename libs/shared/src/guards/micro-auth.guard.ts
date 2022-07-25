@@ -17,7 +17,7 @@ declare module "express" {
 export class MicroAuthGuard implements CanActivate {
     constructor(
         @Inject('AUTH_SERVICE') readonly client: ClientProxy,
-        private reflector: Reflector
+        @Inject(Reflector.name) private readonly reflector: Reflector
     ) {
     }
 
