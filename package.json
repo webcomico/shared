@@ -1,6 +1,6 @@
 {
   "name": "@comico/shared",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "",
   "author": "",
   "private": true,
@@ -8,10 +8,8 @@
   "main": "dist/libs/shared/index.js",
   "scripts": {
     "build": "nest build shared --tsc",
-    "build-2": "rm -rf dist && tsc -p libs/shared/tsconfig.lib.json",
     "dev": "nest start --tsc --watch"
   },
-  "types": "dist/libs/shared/index.d.ts",
   "files": [
     "dist"
   ],

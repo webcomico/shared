@@ -1,4 +1,4 @@
-import {ExecutionContext, Injectable} from '@nestjs/common';
+import {ExecutionContext, Inject, Injectable} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import {GqlExecutionContext} from "@nestjs/graphql";
 import {Observable} from "rxjs";
