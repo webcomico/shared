@@ -6,6 +6,7 @@ import {Reflector} from "@nestjs/core";
 import {IS_PUBLIC_KEY, IS_TEST_USER_KEY} from "../decorators";
 import {lastValueFrom} from "rxjs";
 import {Types} from "mongoose";
+import {ComicoAdapterKey} from "@comico/proxy";
 
 declare module "express" {
     export interface Request {
@@ -16,7 +17,7 @@ declare module "express" {
 @Injectable()
 export class MicroAuthGuard implements CanActivate {
     constructor(
-        @Inject('AUTH_SERVICE') readonly client: ClientProxy,
+        @Inject(ComicoAdapterKey.USERS) readonly client: ClientProxy,
         @Inject(Reflector.name) private readonly reflector: Reflector
     ) {
     }
