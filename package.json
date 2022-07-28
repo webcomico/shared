@@ -2,7 +2,7 @@
   "name": "@comico/shared",
   "version": "0.0.12",
   "description": "",
-  "author": "",
+  "author": "yuan",
   "private": false,
   "license": "UNLICENSED",
   "main": "dist/libs/shared/index.js",
