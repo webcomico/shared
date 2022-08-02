@@ -9,6 +9,8 @@ export enum ComicoQueue {
     STORIES = 'stories_queue',
     USERS = 'users_queue',
     COUNTERS = 'counters_queue',
+    REVIEWS = 'reviews_queue',
+    COMMENTS = 'comments_queue'
 }
 
 export interface ComicoQueueOptions {
@@ -36,7 +38,9 @@ export enum ComicoAdapterKey {
     HISTORIES = 'HISTORIES_SERVICE',
     STORIES = 'STORIES_SERVICE',
     USERS = 'USERS_SERVICE',
-    COUNTERS = 'COUNTERS_SERVICE'
+    COUNTERS = 'COUNTERS_SERVICE',
+    REVIEWS = 'REVIEWS_SERVICE',
+    COMMENTS = 'COMMENTS_SERVICE'
 }
 
 export type ComicoAdapterOptions = ComicoQueueOptions & {
@@ -100,6 +104,23 @@ export class ComicoAdapter {
             queue: ComicoQueue.COUNTERS
         })
     }
+
+    static reviews(urls?: string | string[]): ClientProviderOptions {
+        return ComicoAdapter.build({
+            name: ComicoAdapterKey.REVIEWS,
+            urls: urls || ['amqp://localhost:5672'],
+            queue: ComicoQueue.REVIEWS
+        })
+    }
+
+    static comments(urls?: string | string[]): ClientProviderOptions {
+        return ComicoAdapter.build({
+            name: ComicoAdapterKey.COMMENTS,
+            urls: urls || ['amqp://localhost:5672'],
+            queue: ComicoQueue.COMMENTS
+        })
+    }
+
 
     static build({ name, urls, queue }: ComicoAdapterOptions): ClientProviderOptions {
        return {
